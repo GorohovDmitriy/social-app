@@ -16,9 +16,15 @@ body {
   --text: hsl(0, 0%, 100%);
   --bg: hsl(207, 26%, 17%);
   --base: hsl(209, 23%, 22%);
+  --focus: #ccc;
+  --color: #253db4;
+  --color-hover: rgba(52, 86, 255, 0.75);
 }
 [data-theme="light"] {
   --text: rgba(0, 0, 0, 0.7);
   --bg: rgba(255, 255, 255, 1);
   --base: rgba(248, 248, 250, 1);
+  --color: #3456ff;
+  --focus: #3456ff;
+  --color-hover: rgba(52, 86, 255, 0.75);
 }

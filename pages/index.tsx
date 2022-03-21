@@ -2,13 +2,13 @@ import Head from "next/head";
 
 function Home() {
   return (
-    <div>
+    <>
       <Head>
         <title>Home page</title>
       </Head>
 
-      <main>Hello world Привет</main>
-    </div>
+      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quo</h1>
+    </>
   );
 }
 

@@ -1,0 +1,11 @@
+.content {
+  display: grid;
+  grid-template-columns: minmax(150px, 300px) minmax(500px, 1fr) minmax(
+      150px,
+      300px
+    );
+  grid-gap: 1rem;
+  padding: 1rem 1rem;
+  background-color: var(--base);
+  margin-top: 70px;
+}

@@ -4,3 +4,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+[data-theme="dark"] {
+  --text: hsl(0, 0%, 100%);
+  --bg: hsl(207, 26%, 17%);
+  --base: hsl(209, 23%, 22%);
+}
+[data-theme="light"] {
+  --text: rgba(0, 0, 0, 0.7);
+  --bg: rgba(255, 255, 255, 1);
+  --base: rgba(248, 248, 250, 1);
+}

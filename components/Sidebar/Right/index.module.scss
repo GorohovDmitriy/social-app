@@ -1,0 +1,11 @@
+.right {
+  padding: 1rem;
+  align-self: start;
+  height: 300px;
+  border-radius: 32px;
+  background: var(--bg);
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}

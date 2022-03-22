@@ -7,16 +7,14 @@ import { useTheme } from "next-themes";
 
 const User: FC = () => {
   const { theme, setTheme } = useTheme();
-  const light = theme === "light";
-  const dark = theme === "dark";
 
-  const lightTheme = () => {
-    setTheme("light");
+  const isDark = theme === "dark";
+
+  const changeTheme = () => {
+    isDark ? setTheme("light") : setTheme("dark");
   };
 
-  const darkTheme = () => {
-    setTheme("dark");
-  };
+  const darkTheme = () => {};
   return (
     <div className={styles.header__login}>
       <div className={styles.header__img}>
@@ -30,16 +28,9 @@ const User: FC = () => {
       </div>
       <span className={styles.header__user}>Dmitriy </span>
       <span className={styles.header__user__theme}>
-        {light && (
-          <span onClick={darkTheme}>
-            <IoMdMoon size={34} />
-          </span>
-        )}
-        {dark && (
-          <span onClick={lightTheme}>
-            <IoMdMoon size={34} />
-          </span>
-        )}
+        <span onClick={changeTheme}>
+          <IoMdMoon size={34} />
+        </span>
       </span>
     </div>
   );

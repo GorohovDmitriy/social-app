@@ -12,6 +12,11 @@ body {
   margin: 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 [data-theme="dark"] {
   --text: hsl(0, 0%, 100%);
   --bg: hsl(207, 26%, 17%);

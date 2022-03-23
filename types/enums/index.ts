@@ -2,6 +2,8 @@ export enum WebsiteUrls {
   HOME = "/",
   CHAT = "/chat",
   USERS = "/users",
+  SIGNUP = "/signup",
+  SIGNIN = "/signin",
 }
 
 export enum LinkSocial {

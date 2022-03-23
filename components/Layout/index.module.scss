@@ -4,3 +4,14 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 60px;
 }
+.wrapper__up {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 60px;
+  background: var(--base);
+
+  h1 {
+    margin-top: 70px;
+  }
+}

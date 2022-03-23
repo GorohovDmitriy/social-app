@@ -8,26 +8,20 @@ import Search from "./Search";
 import User from "./User";
 
 const Header: FC = () => {
-  const isAuth = false;
-
   return (
     <div className={styles.header}>
       <div className={styles.header__left}>
         <Svg id="logo" />
         <Search />
       </div>
-      {isAuth ? (
-        <button>Sign Up</button>
-      ) : (
-        <div className={styles.header__right}>
-          <div className={styles.header__group}>
-            {menu.map((item: INavigate) => (
-              <Navbar key={item.id} item={item} />
-            ))}
-          </div>
-          <User />
+      <div className={styles.header__right}>
+        <div className={styles.header__group}>
+          {menu.map((item: INavigate) => (
+            <Navbar key={item.id} item={item} />
+          ))}
         </div>
-      )}
+        <User />
+      </div>
     </div>
   );
 };

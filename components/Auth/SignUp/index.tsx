@@ -9,15 +9,8 @@ import {
 } from "react-icons/fc";
 import { useForm, SubmitHandler } from "react-hook-form";
 import styles from "../index.module.scss";
-
-interface Inputs {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  position: string;
-  files: any;
-}
+import { Inputs } from "types/signup";
+import FieldComponent from "../../FieldComponent";
 
 const SignUp: FC = () => {
   const {
@@ -35,83 +28,46 @@ const SignUp: FC = () => {
     <div className={styles.wrapper__auth}>
       <div className={styles.auth}>
         <form className={styles.auth__form} onSubmit={handleSubmit(onSubmit)}>
-          <div
-            className={[
-              styles.auth__form__input,
-              errors.firstName && styles.auth__form__input__error,
-            ].join(" ")}
-          >
-            <label>
-              <FcPortraitMode size={25} />
-            </label>
-            <input
-              placeholder="First name"
-              {...register("firstName", { required: true })}
-            />
-            {errors.firstName && <span>first name is required</span>}
-          </div>
-          <div
-            className={[
-              styles.auth__form__input,
-              errors.lastName && styles.auth__form__input__error,
-            ].join(" ")}
-          >
-            <label>
-              <FcReading size={25} />
-            </label>
-            <input
-              placeholder="Last name"
-              {...register("lastName", { required: true })}
-            />
-            {errors.lastName && <span>last name is required</span>}
-          </div>
-          <div
-            className={[
-              styles.auth__form__input,
-              errors.email && styles.auth__form__input__error,
-            ].join(" ")}
-          >
-            <label>
-              <FcFaq size={25} />
-            </label>
-            <input
-              placeholder="Email"
-              type="email"
-              {...register("email", { required: true })}
-            />
-            {errors.email && <span>email is required</span>}
-          </div>
-          <div
-            className={[
-              styles.auth__form__input,
-              errors.password && styles.auth__form__input__error,
-            ].join(" ")}
-          >
-            <label>
-              <FcLock size={25} />
-            </label>
-            <input
-              placeholder="Password"
-              type="password"
-              {...register("password", { required: true })}
-            />
-            {errors.password && <span>password is required</span>}
-          </div>
-          <div
-            className={[
-              styles.auth__form__input,
-              errors.position && styles.auth__form__input__error,
-            ].join(" ")}
-          >
-            <label>
-              <FcWorkflow size={25} />
-            </label>
-            <input
-              placeholder="Position"
-              {...register("position", { required: true })}
-            />
-            {errors.position && <span>position field is required</span>}
-          </div>
+          <FieldComponent
+            errorMsg="first name is required"
+            errors={errors}
+            placeholder="First Name"
+            register={register}
+            name="firstName"
+            labelIcon={<FcPortraitMode size={25} />}
+          />
+          <FieldComponent
+            errorMsg="last name is required"
+            errors={errors}
+            placeholder="Last Name"
+            register={register}
+            name="lastName"
+            labelIcon={<FcReading size={25} />}
+          />
+          <FieldComponent
+            errorMsg="email is required"
+            errors={errors}
+            placeholder="Email"
+            register={register}
+            name="email"
+            labelIcon={<FcFaq size={25} />}
+          />
+          <FieldComponent
+            errorMsg="password is required"
+            errors={errors}
+            placeholder="Password"
+            register={register}
+            name="password"
+            labelIcon={<FcLock size={25} />}
+          />
+          <FieldComponent
+            errorMsg="position field is required"
+            errors={errors}
+            placeholder="Position"
+            register={register}
+            name="position"
+            labelIcon={<FcWorkflow size={25} />}
+          />
           <div className={styles.auth__form__file}>
             <label>
               <FcPicture size={25} /> Choose a Photo

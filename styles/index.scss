@@ -24,6 +24,7 @@ a {
   --focus: #ccc;
   --color: #253db4;
   --color-hover: rgba(52, 86, 255, 0.75);
+  --error: #0bd3ef;
 }
 [data-theme="light"] {
   --text: rgba(0, 0, 0, 0.7);
@@ -32,4 +33,5 @@ a {
   --color: #3456ff;
   --focus: #3456ff;
   --color-hover: rgba(52, 86, 255, 0.75);
+  --error: #df0000;
 }

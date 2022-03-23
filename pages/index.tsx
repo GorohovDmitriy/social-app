@@ -1,15 +1,16 @@
+import Content from "@/components/Content";
+import { NextPage } from "next";
 import Head from "next/head";
 
-function Home() {
+const Home: NextPage = () => {
   return (
     <>
       <Head>
         <title>Home page</title>
       </Head>
-
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quo</h1>
+      <Content>Home page</Content>
     </>
   );
-}
+};
 
 export default Home;

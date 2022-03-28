@@ -1,14 +1,14 @@
-import { FC, useState } from "react";
-import { FaSignOutAlt, FaSignInAlt, FaMoon } from "react-icons/fa";
-import { useTheme } from "next-themes";
 import Image from "next/image";
-import user from "../../../public/images/user.jpeg";
 import styles from "../index.module.scss";
 import Link from "next/link";
+import { FC } from "react";
+import { FaSignOutAlt, FaMoon } from "react-icons/fa";
+import { useTheme } from "next-themes";
 import { WebsiteUrls } from "types/enums";
+import { NextRouter, useRouter } from "next/router";
 
 const User: FC = () => {
-  const [isAuth, setIsAuth] = useState(false);
+  const router: NextRouter = useRouter();
   const { theme, setTheme } = useTheme();
   const isDark = theme === "dark";
 
@@ -16,39 +16,23 @@ const User: FC = () => {
     isDark ? setTheme("light") : setTheme("dark");
   };
 
-  // temporarily
-  const SignIn = () => {
-    setIsAuth(true);
-  };
-  // temporarily
-  const SignOut = () => {
-    setIsAuth(false);
-  };
-
   return (
     <div className={styles.header__login}>
-      {!isAuth ? (
-        <button className={styles.header__user__signin}>
-          <Link href={WebsiteUrls.SIGNIN}>
-            <a>
-              <FaSignInAlt onClick={SignIn} size={30} />
-            </a>
-          </Link>
-        </button>
-      ) : (
+      {router.pathname === WebsiteUrls.SIGNUP ? null : (
         <div className={styles.header__img}>
           <Image
-            src={user}
+            src={"/"}
             alt="User avatar"
             className={styles.header__img__user}
             width={45}
             height={45}
           />
+
           <span className={styles.header__user}>
             <button className={styles.header__user__signin}>
               <Link href={WebsiteUrls.SIGNUP}>
                 <a>
-                  <FaSignOutAlt onClick={SignOut} size={30} />
+                  <FaSignOutAlt size={30} />
                 </a>
               </Link>
             </button>

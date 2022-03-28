@@ -5,4 +5,5 @@ export interface Inputs {
   password: string;
   position: string;
   files: any;
+  isAuth: boolean;
 }

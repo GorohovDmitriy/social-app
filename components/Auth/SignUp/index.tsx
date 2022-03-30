@@ -7,12 +7,18 @@ import {
   FcWorkflow,
   FcPicture,
 } from "react-icons/fc";
+import { useMutation } from "@apollo/client";
 import { useForm, SubmitHandler } from "react-hook-form";
-import styles from "../index.module.scss";
 import { Inputs } from "types/signup";
+import { CREATE_USER } from "lib/query";
+import { NextRouter, useRouter } from "next/router";
+import { WebsiteUrls } from "types/enums";
+import styles from "../index.module.scss";
 import FieldComponent from "../../FieldComponent";
 
 const SignUp: FC = () => {
+  const router: NextRouter = useRouter();
+  const [createUser, { data, error }] = useMutation(CREATE_USER);
   const {
     register,
     handleSubmit,
@@ -20,8 +26,32 @@ const SignUp: FC = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<Inputs> = ({
+    firstName,
+    lastName,
+    email,
+    password,
+    position,
+    isAuth,
+  }) => {
+    createUser({
+      variables: {
+        input: {
+          firstName,
+          lastName,
+          email,
+          password,
+          position,
+          isAuth: true,
+        },
+      },
+    });
+    localStorage.setItem(
+      "username",
+      JSON.stringify([firstName, lastName].join(" "))
+    );
     reset();
+    !error && router.push(WebsiteUrls.SIGNIN);
   };
 
   return (
